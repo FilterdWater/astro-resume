@@ -1,0 +1,89 @@
+---
+import SectionHeader from "@/components/SectionHeader.astro";
+
+const experiences = [
+  {
+    role: "Full-stack Web Dev",
+    company: "TROI Midden-Nederland (Police Netherlands)",
+    website: "https://kombijde.politie.nl/vakgebieden/ict/patronen-ontdekken",
+    type: "Internship",
+    location: "Utrecht, Netherlands",
+    period: "Sep 2025 – Jan 2026",
+    highlights: [
+      "Contributed to the front-end development and improvement of internal web applications",
+      "Gained exposure to back-end and DevOps best practices and setups",
+      "Collaborated and interacted with teams and individuals across the organization",
+    ],
+  },
+  {
+    role: "Full-stack Web Dev",
+    company: "Vormkracht10",
+    website: "https://ux.nl/vormkracht10",
+    type: "Internship",
+    location: "Nijmegen, Netherlands",
+    period: "Nov 2024 – Mrt 2025",
+    highlights: ["Explored new tools and frameworks for future projects"],
+  },
+  {
+    role: "Full-stack Web Dev",
+    company: "De Indruk",
+    website: "https://www.deindruk.nl/",
+    type: "Internship",
+    location: "Ede-wageningen, Netherlands",
+    period: "Feb 2024 – Jul 2024",
+    highlights: [
+      'Worked on WordPress sites using a custom <a class="underline transition-all ease-in-out hover:text-stone-500" href="https://roots.io/sage/" target="_blank rel="noreferrer"">Sage</a> based theme',
+      "Maintained and troubleshot client websites under SLA agreements",
+      "Resolved bugs and applied updates to improve stability and security",
+    ],
+  },
+  {
+    role: "Software Developer",
+    company: "Technova College",
+    website: "https://www.technovacollege.nl/opleidingen/software-developer-0",
+    type: "MBO 4",
+    location: "Ede-wageningen, Netherlands",
+    period: "2022 - 2026",
+    highlights: [
+      "Learned to design and build responsive websites and applications",
+      "Gained experience setting up and managing databases",
+      "Studied methods to secure software against threats",
+      "Practiced testing to confirm product quality",
+      "Developed skills in interpreting client needs and presenting solutions",
+    ],
+  },
+];
+---
+
+<section class="flex flex-col gap-8">
+  <SectionHeader title="Experience">
+    Any relevant experience is listed here (Education, Internships, etc.)
+  </SectionHeader>
+
+  <div class="flex flex-col gap-8">
+    {
+      experiences.map(
+        ({ role, company, website, type, location, period, highlights }) => (
+          <div class="flex flex-col md:flex-row md:justify-between">
+            <div>
+              <h3 class="text-xl font-semibold">{role}</h3>
+              {/* prettier-ignore */}
+              <a href={website} target="_blank" rel="noopener noreferrer" class="text-stone-500 underline">{company} • {type}</a>
+              <ul class="mt-2 list-inside list-disc space-y-4 font-serif text-stone-600 md:space-y-0">
+                {highlights.map((item) => (
+                  <li set:html={item} />
+                ))}
+              </ul>
+            </div>
+            <div class="flex flex-col md:items-end">
+              {/* prettier-ignore */}
+              <span class="mt-2 text-sm text-stone-400 md:mt-0 whitespace-nowrap">{period}</span>
+              {/* prettier-ignore */}
+              <span class="mt-2 text-sm text-stone-400 md:mt-0 whitespace-nowrap">{location}</span>
+            </div>
+          </div>
+        ),
+      )
+    }
+  </div>
+</section>

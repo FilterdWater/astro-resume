@@ -1,0 +1,12 @@
+---
+import DefaultHead from "@/components/DefaultHead.astro";
+---
+
+<html lang="en">
+  <DefaultHead />
+  <body class="bg-stone-950 text-stone-50">
+    <div class="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-4 md:py-12">
+      <slot />
+    </div>
+  </body>
+</html>

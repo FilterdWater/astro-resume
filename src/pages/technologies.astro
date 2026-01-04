@@ -1,0 +1,37 @@
+---
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import SectionDivider from "@/components/SectionDivider.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+
+import TechnologieCard from "@/components/TechnologieCard.astro";
+import { technologies } from "@/data/technologies";
+---
+
+<DefaultLayout>
+  <section class="flex flex-col gap-8">
+    <SectionHeader title="Technologies" />
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+      {
+        technologies.map(
+          ({ name, href, title, description, icon: Icon, accent }) => (
+            <TechnologieCard
+              href={href}
+              title={title}
+              accent={accent}
+              name={name}
+              description={description}
+              icon={Icon}
+            />
+          ),
+        )
+      }
+    </div>
+  </section>
+
+  <SectionDivider />
+
+  <div>
+    <a href="/" class="no-underline hover:underline">Return to resume</a>
+  </div>
+</DefaultLayout>

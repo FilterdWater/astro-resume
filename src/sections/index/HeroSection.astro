@@ -1,0 +1,79 @@
+---
+// Imports for Image
+import { Image } from "astro:assets";
+import LarsJPG from "@/assets/images/lars.jpg";
+
+// Location Icon
+import LocationIcon from "@/assets/icons/material-symbols--location-on-outline-rounded.svg";
+
+// Social Icons
+import GitHubIcon from "@/assets/icons/proicons--github.svg";
+import LinkedinIcon from "@/assets/icons/lucide--linkedin.svg";
+import DeveloperIcon from "@/assets/icons/hugeicons--developer.svg";
+
+const socialItems = [
+  {
+    href: "https://github.com/FilterdWater",
+    title: "My GitHub",
+    aria_label: "Link to Lars's GitHub",
+    icon: GitHubIcon,
+    hover: "hover:bg-[#010409]",
+  },
+  {
+    href: "https://linkedin.com/in/lars-van-holland",
+    title: "My Linkedin",
+    aria_label: "Link to Lars's Linkedin",
+    icon: LinkedinIcon,
+    hover: "hover:bg-[#125ca5]",
+  },
+  {
+    href: "https://larsvanholland.dev/",
+    title: "My personal website",
+    aria_label: "Link to Lars's personal website",
+    icon: DeveloperIcon,
+    hover: "hover:bg-amber-400",
+  },
+];
+---
+
+<section
+  class="grid grid-flow-row items-center justify-center gap-8 sm:grid-flow-col sm:justify-normal"
+>
+  <!-- Picture -->
+  <Image
+    class="h-96 w-96 rounded object-cover"
+    src={LarsJPG}
+    alt="Portrait of Lars van Holland"
+    priority
+  />
+  <!-- Info -->
+  <div class="flex flex-col">
+    <!-- Name & Location -->
+    <div class="pb-6">
+      <span class="text-4xl font-bold sm:text-5xl">Lars van Holland</span>
+      <div
+        class="flex flex-row items-center gap-1 font-serif text-lg text-stone-500 sm:justify-start sm:text-xl"
+      >
+        <span>Netherlands, Nijmegen</span>
+        <LocationIcon />
+      </div>
+    </div>
+    <!-- Socials -->
+    <div class="flex flex-wrap gap-3 sm:justify-start">
+      {
+        socialItems.map(({ href, title, aria_label, icon: Icon, hover }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={aria_label}
+            title={title}
+            class={`inline-flex items-center justify-center rounded-md p-2 transition-all ease-in-out hover:ring-2 dark:bg-stone-900 dark:hover:ring-stone-700 dark:hover:ring-offset-stone-900 ${hover}`}
+          >
+            <Icon class="size-7 sm:size-8" />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

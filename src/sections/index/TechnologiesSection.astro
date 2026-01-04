@@ -1,0 +1,38 @@
+---
+import SectionHeader from "@/components/SectionHeader.astro";
+import TechnologieCard from "@/components/TechnologieCard.astro";
+
+import { technologies } from "@/data/technologies";
+const preferredTechnologies = technologies.slice(0, 6);
+---
+
+<section class="flex flex-col gap-8">
+  <SectionHeader title="Preferred Technologies">
+    Listed below are some of the things I've liked working with and would
+    personally use again. Though I've worked and tinkered with a growing
+    collection of other stuff as well
+    <a
+      class="underline transition-all ease-in-out hover:text-stone-400"
+      href="/technologies"
+    >
+      (listed on this page if you're interested)</a
+    >
+  </SectionHeader>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+    {
+      preferredTechnologies.map(
+        ({ name, href, title, description, icon: Icon, accent }) => (
+          <TechnologieCard
+            href={href}
+            title={title}
+            accent={accent}
+            name={name}
+            description={description}
+            icon={Icon}
+          />
+        ),
+      )
+    }
+  </div>
+</section>

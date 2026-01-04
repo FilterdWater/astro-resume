@@ -1,0 +1,24 @@
+---
+// [Tailwind CSS](https://tailwindcss.com/)
+import "@/styles/global.css";
+
+// [Open Graph Protocol](https://ogp.me/)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/og.webp", Astro.url);
+
+// [Fontsource](https://fontsource.org/)
+import "@fontsource-variable/roboto";
+import "@fontsource-variable/noto-serif";
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="canonical" href={canonicalURL} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:image" content={ogImage} />
+  <title>Resume | LarsVH</title>
+</head>

@@ -1,18 +1,29 @@
 ---
-import Layout from "../layouts/Layout.astro";
+// General Layout
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+import SectionDivider from "@/components/SectionDivider.astro";
+
+// Sections
+import HeroSection from "@/sections/index/HeroSection.astro";
+import AboutMeSection from "@/sections/index/AboutMeSection.astro";
+import TechnologiesSection from "@/sections/index/TechnologiesSection.astro";
+import ExperienceSection from "@/sections/index/ExperienceSection.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Layout>
-      <h1>Astro</h1>
-    </Layout>
-  </body>
-</html>
+<DefaultLayout>
+  <HeroSection />
+
+  <SectionDivider />
+
+  <AboutMeSection />
+
+  <SectionDivider />
+
+  <TechnologiesSection />
+
+  <SectionDivider />
+
+  <ExperienceSection />
+
+  <SectionDivider />
+</DefaultLayout>
