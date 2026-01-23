@@ -6,8 +6,8 @@ import DockerIcon from "@/assets/icons/logos--docker-icon.svg";
 import GitIcon from "@/assets/icons/devicon--git.svg";
 import ReactIcon from "@/assets/icons/devicon--react.svg";
 import NextjsIcon from "@/assets/icons/devicon--nextjs.svg";
-import ViteIcon from "@/assets/icons/devicon--vitejs.svg";
-import VitestIcon from "@/assets/icons/devicon--vitest.svg";
+import ViteIcon from "@/assets/icons/vite-new.svg";
+import VitestIcon from "@/assets/icons/vitest-new.svg";
 import PlaywrightIcon from "@/assets/icons/devicon--playwright.svg";
 import WordpressIcon from "@/assets/icons/ic--baseline-wordpress.svg";
 
