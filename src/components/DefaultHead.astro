@@ -21,4 +21,13 @@ import "@fontsource-variable/noto-serif";
   <meta property="og:url" content={Astro.url} />
   <meta property="og:image" content={ogImage} />
   <title>Resume | LarsVH</title>
+  <script>
+    // JavaScript for light or dark mode depending on system theme
+    (function () {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      document.documentElement.classList.add(prefersDark ? "dark" : "light");
+    })();
+  </script>
 </head>
