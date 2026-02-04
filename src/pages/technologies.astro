@@ -5,6 +5,8 @@ import SectionHeader from "@/components/SectionHeader.astro";
 
 import TechnologieCard from "@/components/TechnologieCard.astro";
 import { technologies } from "@/data/technologies";
+
+import Footer from "@/components/Footer.astro";
 ---
 
 <DefaultLayout>
@@ -34,4 +36,8 @@ import { technologies } from "@/data/technologies";
   <div>
     <a href="/" class="no-underline hover:underline">Return to resume</a>
   </div>
+
+  <SectionDivider />
+
+  <Footer />
 </DefaultLayout>

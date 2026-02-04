@@ -22,12 +22,64 @@ import "@fontsource-variable/noto-serif";
   <meta property="og:image" content={ogImage} />
   <title>Resume | LarsVH</title>
   <script>
-    // JavaScript for light or dark mode depending on system theme
-    (function () {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      document.documentElement.classList.add(prefersDark ? "dark" : "light");
-    })();
+    const lightThemeButton = document.getElementById("light-theme-button");
+    lightThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "light");
+      toggleTheme(false);
+    });
+
+    const darkThemeButton = document.getElementById("dark-theme-button");
+    darkThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "dark");
+      toggleTheme(true);
+    });
+
+    const systemThemeButton = document.getElementById("system-theme-button");
+    systemThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "system");
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    });
+
+    function toggleTheme(dark: any) {
+      const css = document.createElement("style");
+
+      // Create a temporary <style> element to disable all CSS transitions.
+      // This prevents flickering or smooth animations when toggling the theme.
+      // Without this, users might see a flashing effect as styles change.
+      css.appendChild(
+        document.createTextNode(
+          `* {
+         -webkit-transition: none !important;
+         -moz-transition: none !important;
+         -o-transition: none !important;
+         -ms-transition: none !important;
+         transition: none !important;
+      }`,
+        ),
+      );
+
+      document.head.appendChild(css);
+
+      if (dark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      window.getComputedStyle(css).opacity;
+      document.head.removeChild(css);
+    }
+
+    function preloadTheme() {
+      const userTheme = localStorage.theme;
+
+      if (userTheme === "light" || userTheme === "dark") {
+        toggleTheme(userTheme === "dark");
+      } else {
+        toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      }
+    }
+
+    preloadTheme();
   </script>
 </head>
